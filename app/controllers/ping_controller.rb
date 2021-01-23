@@ -1,5 +1,6 @@
 class PingController < ApplicationController
   before_action :add_queue_time
+  before_action :add_test_name
 
   def handle
     db = rand * 2
@@ -18,6 +19,10 @@ class PingController < ApplicationController
 
     queue_time_ms = now - start
 
-    Honeycomb.add_field('request.queue_time_ms', queue_time_ms)
+    Honeycomb.add_field('queue_time_ms', queue_time_ms)
+  end
+
+  def add_test_name
+    Honeycomb.add_field('test_name', params[:test_name])
   end
 end
