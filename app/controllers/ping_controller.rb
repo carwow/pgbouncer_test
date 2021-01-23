@@ -1,6 +1,9 @@
 class PingController < ApplicationController
   def handle
-    ApplicationRecord.connection.execute("SELECT pg_sleep(#{rand * 2})")
+    db = rand * 2
+    cpu = rand
+    ApplicationRecord.connection.execute("SELECT pg_sleep(#{db})")
+    sleep cpu
 
     render json: { ok: true }
   end
