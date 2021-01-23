@@ -1,4 +1,4 @@
-web_threads = ENV.fetch("MAX_THREADS", 8).to_i
+web_threads = ENV.fetch("RAILS_MAX_THREADS", 8).to_i
 threads web_threads, web_threads
 
 port ENV.fetch("PORT") { 3000 }
