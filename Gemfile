@@ -10,6 +10,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'faraday'
 gem 'pry'
 gem 'pry-rails'
+gem 'honeycomb-beeline'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
