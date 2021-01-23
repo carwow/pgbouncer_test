@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  prepared_statements: false
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 8 } %>
+
+development:
+  <<: *default
+  database: pgbouncer_test_development
+
+test:
+  <<: *default
+  database: pgbouncer_test_test
+
+production:
+  <<: *default
+  url: <%= ENV['PGBOUNCER_ENABLED'] == "true" ? ENV["DATABASE_CONNECTION_POOL_URL"] : ENV["DATABASE_URL"]%>
