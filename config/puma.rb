@@ -1,10 +1,7 @@
-web_threads = ENV.fetch("RAILS_MAX_THREADS", 8).to_i
-threads web_threads, web_threads
+threads 10, 10
+workers 0
 
 port ENV.fetch("PORT") { 3000 }
-
 environment ENV.fetch("RAILS_ENV") { "development" }
-
-workers 0
 
 plugin :tmp_restart
